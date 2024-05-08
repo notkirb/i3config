@@ -64,7 +64,7 @@ bindsym $mod+x exec flameshot gui
 bindsym $mod+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id dmenu_run
+bindsym $mod+d exec "rofi -no-auto-select -location 2 -yoffset 0 -width 80 -show run"
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -123,11 +123,11 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1 Browser"
-set $ws2 "2 Terminal"
-set $ws3 "3 Editor"
-set $ws4 "4 Discord"
-set $ws5 "5 Parsec"
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
@@ -207,15 +207,19 @@ bar {
 	}
 	strip_workspace_numbers no
 	strip_workspace_name no
+
+	padding 2px
 }
 
-#gaps inner 16
-#gaps outer 8
+gaps inner 8
+gaps outer 2
 
 default_border pixel
 default_floating_border pixel
 
-exec_always feh --bg-fill ~/.config/i3/wallpaper/mojave.png
+exec_always feh --bg-fill ~/.config/i3/wallpaper/nature.jpg
+
+exec_always picom
 
 # class			border	backgr.	text 	indicator child_border
 client.focused 		#d8dee9	#eceff4	#333333	#5e81ac   #eceff4
